@@ -3,6 +3,7 @@ import cors from 'cors'
 import mongoose from 'mongoose'
 
 import routes from './routes'
+import bodyParser = require('body-parser');
 
 class App {
     public express: express.Application
@@ -18,6 +19,7 @@ class App {
     private middlewares () : void {
       this.express.use(express.json())
       this.express.use(cors())
+      this.express.use(bodyParser.json())
     }
 
     private database () : void {
