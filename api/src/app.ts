@@ -9,27 +9,27 @@ class App {
     public express: express.Application
 
     public constructor () {
-      this.express = express()
+        this.express = express()
 
-      this.middlewares()
-      this.routes()
-      this.database()
+        this.middlewares()
+        this.routes()
+        this.database()
     }
 
-    private middlewares () : void {
-      this.express.use(express.json())
-      this.express.use(cors())
-      this.express.use(bodyParser.json())
+    private middlewares (): void {
+        this.express.use(express.json())
+        this.express.use(cors())
+        this.express.use(bodyParser.json())
     }
 
-    private database () : void {
-      mongoose.connect('mongodb://localhost:27017/grana-preta', {
-        useNewUrlParser: true
-      })
+    private database (): void {
+        mongoose.connect('mongodb://localhost:27017/grana-preta', {
+            useNewUrlParser: true
+        })
     }
 
     private routes (): void {
-      this.express.use(routes)
+        this.express.use(routes)
     }
 }
 
